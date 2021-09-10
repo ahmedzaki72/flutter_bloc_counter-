@@ -22,4 +22,21 @@ class CounterBloc extends Bloc<CounterEvent, CounterStates> {
       yield CounterStopState(counter: 0 );
     }
   }
+
+  /// using to explain transition from state to another state using to log and see state on log
+  @override
+  void onTransition(Transition<CounterEvent, CounterStates> transition) {
+    // TODO: implement onTransition
+    super.onTransition(transition);
+    print(transition);
+  }
+
+  /// using event to explain event on log
+  @override
+  void onEvent(CounterEvent event) {
+    // TODO: implement onEvent
+    super.onEvent(event);
+    print('using on Event log $event');
+  }
+
 }

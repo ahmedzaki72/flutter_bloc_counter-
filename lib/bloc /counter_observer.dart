@@ -24,4 +24,6 @@ class CounterObserver extends BlocObserver {
     print(error);
     super.onError(bloc, error, stackTrace);
   }
+
+  /// write code working on all bloc you will using bloc Delegate.  and i will creating class .
 }

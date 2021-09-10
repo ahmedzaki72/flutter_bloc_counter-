@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 abstract class CounterStates extends Equatable {}
 
 class CounterInitial extends CounterStates {
-  int? initial;
+ final  int? initial;
   CounterInitial({this.initial});
   @override
   // TODO: implement props
@@ -11,7 +11,7 @@ class CounterInitial extends CounterStates {
 }
 
 class CounterIncrementState extends CounterStates {
-  int? counter;
+ final  int? counter;
   CounterIncrementState({this.counter});
 
   @override
@@ -20,7 +20,7 @@ class CounterIncrementState extends CounterStates {
 }
 
 class CounterDecrementState extends CounterStates {
-  int? counter;
+  final int? counter;
   CounterDecrementState({this.counter});
   @override
   // TODO: implement props
@@ -28,7 +28,7 @@ class CounterDecrementState extends CounterStates {
 }
 
 class CounterStopState extends CounterStates {
-  int? counter;
+  final int? counter;
   CounterStopState({this.counter});
   @override
   // TODO: implement props

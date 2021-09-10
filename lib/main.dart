@@ -43,13 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     // TODO: implement initState
-    // bloc = BlocProvider.of<CounterBloc>(context);
     super.initState();
   }
 
   @override
   void dispose() {
-    // bloc!.close();
     super.dispose();
   }
 
@@ -69,20 +67,38 @@ class _MyHomePageState extends State<MyHomePage> {
             BlocConsumer<CounterBloc, CounterStates>(
               listener: (context, states) {
                 if(states is CounterDecrementState) {
-                  if(states.counter == 30 ) {
-                     context.read<CounterBloc>().add(CounterStopEvent());
-                  }
+                  // if(states.counter == 30 ) {
+                  //    context.read<CounterBloc>().add(CounterStopEvent());
+                  // }
+                  print('event * 7 decrements');
                 }
                 if(states is CounterIncrementState) {
+                  print('event * 7 increment');
+                }
+                if(states is CounterStopState) {
+                  print('event * 7 stop');
                 }
               },
               builder: (context, states) {
-                var counterBloc =  CounterBloc.get(context);
-                print(counterBloc.counter);
-                return Text(
-                  '${context.watch<CounterBloc>().counter}',
-                  style: Theme.of(context).textTheme.headline4,
-                );
+                if (states is CounterIncrementState) {
+                  return Text(
+                    '${states.counter}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                }else if (states is CounterDecrementState) {
+                  return Text(
+                    // '${context.watch<CounterBloc>().counter}',
+                    '${states.counter}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                } else if (states is CounterStopState) {
+                  return Text(
+                    // '${context.watch<CounterBloc>().counter}',
+                    '${states.counter}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                }
+                return Text('0');
               },
             ),
           ],
